@@ -20,43 +20,47 @@ function App() {
 	}
 
 	return (
-		<div className="w-full h-screen bg-slate-300 flex gap-[2%] items-start p-[5%] flex-wrap lg:flex-nowrap">
-			<Section className="w-1/2">
-				<Header value="Resume" />
-				<TextBox
-					value={resume}
-					onChange={(e) => {
-						setResume(e.target.value)
-					}}
-				/>
-			</Section>
-			<div className="w-[50%] h-full flex flex-col gap-4">
-				<Section>
-					<Header value="Job Description" />
+		<div className="w-full h-screen bg-slate-300 flex flex-col p-[5%] gap-8">
+			<h1 className="w-full flex justify-center text-5xl">
+				Job Key - Resume Keyword Matcher
+			</h1>
+			<div className="h-full flex gap-[2%] items-start flex-wrap lg:flex-nowrap">
+				<Section className="w-1/2">
+					<Header value="Resume" />
 					<TextBox
-						value={jobDescription}
+						value={resume}
 						onChange={(e) => {
-							setJobDescription(e.target.value)
+							setResume(e.target.value)
 						}}
 					/>
-					<button
-						className="text-white rounded text-2xl p-2 bg-blue-400 hover:bg-blue-800 disabled:bg-gray-300"
-						onClick={() => {
-							displayKeywords()
-						}}
-						disabled={!jobDescription}
-					>
-						Generate Keywords
-					</button>
 				</Section>
-				{!!keywords.length && (
+				<div className="w-[50%] h-full flex flex-col gap-4">
 					<Section>
-						<KeywordList keywords={keywords} resume={resume} />
+						<Header value="Job Description" />
+						<TextBox
+							value={jobDescription}
+							onChange={(e) => {
+								setJobDescription(e.target.value)
+							}}
+						/>
+						<button
+							className="text-white rounded text-2xl p-2 bg-blue-400 hover:bg-blue-800 disabled:bg-gray-300"
+							onClick={() => {
+								displayKeywords()
+							}}
+							disabled={!jobDescription}
+						>
+							Generate Keywords
+						</button>
 					</Section>
-				)}
+					{!!keywords.length && (
+						<Section>
+							<KeywordList keywords={keywords} resume={resume} />
+						</Section>
+					)}
+				</div>
+				<Loader isLoading={isLoading} />
 			</div>
-
-			<Loader isLoading={isLoading} />
 		</div>
 	)
 }

@@ -14,7 +14,6 @@ export default function KeywordList({
 		(keyword: string) => formattedResume.includes(keyword.toLowerCase()),
 		[formattedResume],
 	)
-
 	const matchCount = useMemo(
 		() =>
 			keywords.reduce(
