@@ -9,7 +9,7 @@ export default function Section({
 }) {
 	return (
 		<div
-			className={`${className} h-full flex flex-col gap-6 p-10 bg-slate-200 shadow-md rounded overflow-auto`}
+			className={`${className} h-full flex flex-col gap-6 p-10 bg-slate-200 shadow-md rounded-lg overflow-auto`}
 		>
 			{children}
 		</div>
