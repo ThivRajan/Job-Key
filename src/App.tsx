@@ -21,7 +21,7 @@ function App() {
 
 	return (
 		<div className="w-full h-screen bg-gray-50 flex flex-col p-[5%] gap-8 font-body">
-			<h1 className="w-full flex justify-center text-5xl text-emerald-400">
+			<h1 className="w-full flex justify-center text-5xl text-black">
 				Job Key - Resume Keyword Matcher
 			</h1>
 			<div className="h-full flex gap-[2%] items-start flex-wrap lg:flex-nowrap">
