@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import KeywordList from './KeywordList'
 import Loader from './Loader'
 import { getKeywords } from './get-keywords.util'
 
@@ -35,13 +36,7 @@ function App() {
 				>
 					Generate Keywords
 				</button>
-				{!!keywords.length && (
-					<div className="flex flex-col gap-2">
-						{keywords.map((keyword) => (
-							<span key={keyword}>{keyword}</span>
-						))}
-					</div>
-				)}
+				<KeywordList keywords={keywords} />
 			</form>
 			<Loader isLoading={isLoading} />
 		</div>
