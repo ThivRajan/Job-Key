@@ -1,3 +1,4 @@
+import Header from '@components/Header'
 import KeywordList from '@components/KeywordList/KeywordList'
 import Loader from '@components/Loader'
 import Section from '@components/Section'
@@ -21,7 +22,7 @@ function App() {
 	return (
 		<div className="w-full h-screen bg-slate-300 flex gap-[2%] items-start p-[5%] flex-wrap lg:flex-nowrap">
 			<Section>
-				<h1 className="text-3xl">Resume</h1>
+				<Header value="Resume" />
 				<TextBox
 					value={resume}
 					onChange={(e) => {
@@ -30,7 +31,7 @@ function App() {
 				/>
 			</Section>
 			<Section>
-				<h1 className="text-3xl">Job Description</h1>
+				<Header value="Job Description" />
 				<TextBox
 					value={jobDescription}
 					onChange={(e) => {
@@ -48,7 +49,7 @@ function App() {
 				</button>
 				{!!keywords.length && (
 					<div className="flex flex-col gap-2">
-						<h1 className="text-3xl">Keywords</h1>
+						<Header value="Keywords" />
 						<KeywordList keywords={keywords} resume={resume} />
 					</div>
 				)}
