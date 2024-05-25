@@ -1,4 +1,5 @@
 import { CSSProperties, useMemo } from 'react'
+import { FaCheck } from 'react-icons/fa6'
 
 const MATCHED_COLOR = 'green'
 const UNMATCHED_COLOR = 'gray'
@@ -30,8 +31,10 @@ export default function KeywordItem({
 						'--size': '20px',
 					} as CSSProperties
 				}
-				className={`${isMatched ? 'bg-[var(--color)]' : 'border-2 border-[var(--color)]'} w-[var(--size)] h-[var(--size)] rounded-full`}
-			/>
+				className={`w-[var(--size)] h-[var(--size)] rounded-full text-white flex justify-center items-center ${isMatched ? 'bg-[var(--color)]' : 'border-2 border-[var(--color)]'}`}
+			>
+				{isMatched ? <FaCheck className="text-xs" /> : <></>}
+			</div>
 			<span className="text-[var(--color)]">{keyword}</span>
 		</span>
 	)
