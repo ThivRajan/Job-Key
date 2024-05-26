@@ -26,7 +26,7 @@ function App() {
 				<h2 className="text-2xl">Free Resume Keyword Matcher</h2>
 			</div>
 			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap overflow-y-auto font-body">
-				<Section>
+				<Section className="h-full">
 					<Header value="Job Description" />
 					<TextBox
 						value={jobDescription}
@@ -46,7 +46,7 @@ function App() {
 				</Section>
 				{!!keywords.length && (
 					<>
-						<Section>
+						<Section className="h-full">
 							<Header value="Resume" />
 							<TextBox
 								value={resume}
