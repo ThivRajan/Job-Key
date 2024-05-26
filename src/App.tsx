@@ -35,7 +35,7 @@ function App() {
 						}}
 					/>
 					<button
-						className="text-white rounded text-2xl p-2 disabled:bg-emerald-200 bg-emerald-400 hover:bg-emerald-800"
+						className="text-white rounded text-2xl p-2 disabled:bg-emerald-200 bg-emerald-400 hover:bg-emerald-800 transition-all duration-500"
 						onClick={() => {
 							displayKeywords()
 						}}
