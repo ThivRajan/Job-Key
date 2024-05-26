@@ -1,6 +1,9 @@
+import Header from '@components/Header'
+import KeywordList from '@components/KeywordList/KeywordList'
+import Loader from '@components/Loader'
+import Section from '@components/Section'
+import TextBox from '@components/TextBox'
 import { useState } from 'react'
-import KeywordList from './KeywordList'
-import Loader from './Loader'
 import { getKeywords } from './get-keywords.util'
 
 function App() {
@@ -17,41 +20,48 @@ function App() {
 	}
 
 	return (
-		<div className="w-full h-screen bg-slate-300 flex justify-center items-center">
-			<form
-				onSubmit={(e) => {
-					e.preventDefault()
-					displayKeywords()
-				}}
-				className="flex flex-col w-[500px] gap-4"
-			>
-				<h1 className="text-3xl">Resume</h1>
-				<textarea
-					className="h-[200px]  rounded resize-none text-black outline-none p-4"
-					onChange={(e) => {
-						setResume(e.target.value)
-					}}
-				/>
-
-				<h1 className="text-3xl">Job Description</h1>
-				<textarea
-					value={jobDescription}
-					className="h-[200px]  rounded resize-none text-black outline-none p-4"
-					onChange={(e) => {
-						setJobDescription(e.target.value)
-					}}
-				/>
-				<button
-					type="submit"
-					className="text-white rounded text-2xl p-2 bg-blue-400 hover:bg-blue-800"
-				>
-					Generate Keywords
-				</button>
+		<div className="flex flex-col gap-8 h-screen bg-gray-50 p-[3%]">
+			<div className="w-full flex flex-col justify-center items-center text-slate-700 gap-2 font-title">
+				<h1 className="text-5xl">Job Key</h1>
+				<h2 className="text-2xl">Free Resume Keyword Matcher</h2>
+			</div>
+			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap overflow-y-auto font-body">
+				<Section className="h-full">
+					<Header value="Job Description" />
+					<TextBox
+						value={jobDescription}
+						onChange={(e) => {
+							setJobDescription(e.target.value)
+						}}
+					/>
+					<button
+						className="text-white rounded text-2xl p-2 disabled:bg-emerald-200 bg-emerald-400 hover:bg-emerald-800 transition-all duration-500"
+						onClick={() => {
+							displayKeywords()
+						}}
+						disabled={!jobDescription}
+					>
+						Generate Keywords
+					</button>
+				</Section>
 				{!!keywords.length && (
-					<KeywordList keywords={keywords} resume={resume} />
+					<>
+						<Section className="h-full">
+							<Header value="Resume" />
+							<TextBox
+								value={resume}
+								onChange={(e) => {
+									setResume(e.target.value)
+								}}
+							/>
+						</Section>
+						<Section className="h-fit max-h-full">
+							<KeywordList keywords={keywords} resume={resume} />
+						</Section>
+					</>
 				)}
-			</form>
-			<Loader isLoading={isLoading} />
+				<Loader isLoading={isLoading} />
+			</div>
 		</div>
 	)
 }
