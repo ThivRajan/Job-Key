@@ -24,11 +24,11 @@ export default function KeywordList({
 	)
 
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-4 overflow-hidden">
 			<Header
 				value={`Keywords - ${matchCount}/${keywords.length} (${Math.floor((matchCount / keywords.length) * 100)}%)`}
 			/>
-			<div className="flex flex-col gap-2">
+			<div className="flex flex-col gap-2 overflow-auto">
 				{keywords.map((keyword) => (
 					<span key={keyword}>
 						<KeywordItem
