@@ -12,7 +12,7 @@ export default function KeywordList({
 	const formattedResume = useMemo(() => resume.toLowerCase(), [resume])
 	const keywordMatched = useCallback(
 		(keyword: string) => formattedResume.includes(keyword.toLowerCase()),
-		[formattedResume],
+		[formattedResume, keywords],
 	)
 	const matchCount = useMemo(
 		() =>
@@ -20,13 +20,13 @@ export default function KeywordList({
 				(acc, keyword) => (keywordMatched(keyword) ? acc + 1 : acc),
 				0,
 			),
-		[formattedResume],
+		[formattedResume, keywords],
 	)
 
 	return (
 		<div className="flex flex-col gap-4">
 			<Header
-				value={`Keyword - ${matchCount}/${keywords.length} (${Math.floor((matchCount / keywords.length) * 100)}%)`}
+				value={`Keywords - ${matchCount}/${keywords.length} (${Math.floor((matchCount / keywords.length) * 100)}%)`}
 			/>
 			<div className="flex flex-col gap-2">
 				{keywords.map((keyword) => (
