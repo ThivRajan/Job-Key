@@ -24,7 +24,7 @@ function App() {
 			<h1 className="w-full flex justify-center text-5xl text-black">
 				Job Key - Resume Keyword Matcher
 			</h1>
-			<div className="h-full flex gap-8 justify-center lg:flex-nowrap flex-wrap">
+			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap">
 				<Section>
 					<Header value="Job Description" />
 					<TextBox
