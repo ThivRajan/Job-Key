@@ -9,7 +9,7 @@ export default function Section({
 }) {
 	return (
 		<div
-			className={`w-full flex flex-col gap-6 p-10 bg-slate-200 shadow-md rounded-lg overflow-auto ${className}`}
+			className={`w-full flex flex-col gap-6 p-10 bg-slate-200 border border-slate-300 rounded-lg shadow-md overflow-auto ${className}`}
 		>
 			{children}
 		</div>
