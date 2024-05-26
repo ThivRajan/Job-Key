@@ -20,12 +20,12 @@ function App() {
 	}
 
 	return (
-		<div className="flex flex-col gap-8 h-screen bg-gray-50 p-[3%] font-body">
-			<div className="w-full flex flex-col justify-center items-center text-slate-700 gap-2">
+		<div className="flex flex-col gap-8 h-screen bg-gray-50 p-[3%]">
+			<div className="w-full flex flex-col justify-center items-center text-slate-700 gap-2 font-title">
 				<h1 className="text-5xl">Job Key</h1>
 				<h2 className="text-2xl">Free Resume Keyword Matcher</h2>
 			</div>
-			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap overflow-y-auto">
+			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap overflow-y-auto font-body">
 				<Section>
 					<Header value="Job Description" />
 					<TextBox

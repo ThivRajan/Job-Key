@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {},
 		fontFamily: {
-			body: ['Roboto Slab'],
+			title: ['Roboto Slab'],
+			body: ['Noto Sans'],
 		},
 	},
 	plugins: [],
