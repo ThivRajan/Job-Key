@@ -20,11 +20,12 @@ function App() {
 	}
 
 	return (
-		<div className="w-full h-screen bg-gray-50 flex flex-col p-[5%] gap-8 font-body">
-			<h1 className="w-full flex justify-center text-5xl text-black">
-				Job Key - Resume Keyword Matcher
-			</h1>
-			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap">
+		<div className="flex flex-col gap-8 h-screen bg-gray-50 p-[3%] font-body">
+			<div className="w-full flex flex-col justify-center items-center text-slate-700 gap-2">
+				<h1 className="text-5xl">Job Key</h1>
+				<h2 className="text-2xl">Free Resume Keyword Matcher</h2>
+			</div>
+			<div className="h-full flex gap-8 lg:flex-nowrap flex-wrap overflow-y-auto">
 				<Section>
 					<Header value="Job Description" />
 					<TextBox
@@ -54,7 +55,7 @@ function App() {
 								}}
 							/>
 						</Section>
-						<Section>
+						<Section className="h-fit max-h-full">
 							<KeywordList keywords={keywords} resume={resume} />
 						</Section>
 					</>
