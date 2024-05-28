@@ -1,7 +1,7 @@
 import { CSSProperties, useMemo } from 'react'
 import { FaCheck } from 'react-icons/fa6'
 
-const MATCHED_COLOR = 'rgb(52 211 153)'
+const MATCHED_COLOR = 'rgb(16 185 129)'
 const UNMATCHED_COLOR = 'black'
 
 export default function KeywordItem({
