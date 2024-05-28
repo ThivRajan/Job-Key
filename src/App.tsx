@@ -5,16 +5,15 @@ import Section from '@components/Section'
 import TextBox from '@components/TextBox'
 import { useState } from 'react'
 import { getKeywords } from './get-keywords.util'
+import useJobInfo from './use-job-info.hook'
 
 function App() {
 	const [isLoading, setIsLoading] = useState(false)
-	const [resume, setResume] = useState('')
-	const [jobDescription, setJobDescription] = useState('')
-	const [keywords, setKeywords] = useState<string[]>([])
+	const { jobInfo, setDescription, setResume, setKeywords } = useJobInfo()
 
 	const displayKeywords = async () => {
 		setIsLoading(true)
-		const keywords = await getKeywords(jobDescription)
+		const keywords = await getKeywords(jobInfo.description)
 		setIsLoading(false)
 		setKeywords(keywords)
 	}
@@ -29,34 +28,37 @@ function App() {
 				<Section className="h-full">
 					<Header value="Job Description" />
 					<TextBox
-						value={jobDescription}
+						value={jobInfo.description}
 						onChange={(e) => {
-							setJobDescription(e.target.value)
+							setDescription(e.target.value)
 						}}
 					/>
 					<button
-						className="text-white rounded text-2xl p-2 disabled:bg-emerald-200 bg-emerald-400 hover:bg-emerald-800 transition-all duration-500"
+						className="text-white rounded text-2xl p-2 disabled:bg-emerald-200 bg-emerald-500 hover:bg-emerald-800 transition-all duration-500"
 						onClick={() => {
 							displayKeywords()
 						}}
-						disabled={!jobDescription}
+						disabled={!jobInfo.description}
 					>
 						Generate Keywords
 					</button>
 				</Section>
-				{!!keywords.length && (
+				{!!jobInfo.keywords.length && (
 					<>
 						<Section className="h-full">
 							<Header value="Resume" />
 							<TextBox
-								value={resume}
+								value={jobInfo.resume}
 								onChange={(e) => {
 									setResume(e.target.value)
 								}}
 							/>
 						</Section>
 						<Section className="h-fit max-h-full">
-							<KeywordList keywords={keywords} resume={resume} />
+							<KeywordList
+								keywords={jobInfo.keywords}
+								resume={jobInfo.resume}
+							/>
 						</Section>
 					</>
 				)}
