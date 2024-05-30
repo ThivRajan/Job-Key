@@ -31,7 +31,7 @@ export default function KeywordItem({
 						'--size': '20px',
 					} as CSSProperties
 				}
-				className={`w-[var(--size)] h-[var(--size)] rounded-full text-white flex justify-center items-center ${isMatched ? 'bg-[var(--color)]' : 'border-2 border-[var(--color)]'}`}
+				className={`min-w-[var(--size)] min-h-[var(--size)] rounded-full text-white flex justify-center items-center ${isMatched ? 'bg-[var(--color)]' : 'border-2 border-[var(--color)]'}`}
 			>
 				{isMatched ? <FaCheck className="text-xs" /> : <></>}
 			</div>
