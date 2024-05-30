@@ -5,7 +5,7 @@ export default function ErrorMessage() {
 	return (
 		<ToastContainer
 			position="top-center"
-			autoClose={800}
+			autoClose={1000}
 			hideProgressBar={true}
 			closeOnClick
 			rtl={false}
