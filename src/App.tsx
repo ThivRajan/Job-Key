@@ -1,3 +1,4 @@
+import ErrorMessage from '@components/ErrorMessage'
 import Header from '@components/Header'
 import KeywordList from '@components/KeywordList/KeywordList'
 import Loader from '@components/Loader'
@@ -63,6 +64,7 @@ function App() {
 					</>
 				)}
 				<Loader isLoading={isLoading} />
+				<ErrorMessage />
 			</div>
 		</div>
 	)
